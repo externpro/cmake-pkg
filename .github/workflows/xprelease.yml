@@ -12,7 +12,7 @@ jobs:
     uses: externpro/externpro/.github/workflows/release-from-build.yml@25.06.3
     with:
       workflow_run_url: ${{ github.event.inputs.workflow_run_url }}
-      artifact_pattern: "*.tar.xz"
+      artifact_pattern: "*.rpm"
     permissions:
       contents: write
       id-token: write
