@@ -37,7 +37,6 @@ jobs:
     uses: externpro/externpro/.github/workflows/release-from-build.yml@25.07.10
     with:
       workflow_run_url: ${{ github.event.inputs.workflow_run_url }}
-      artifact_pattern: "*.rpm"
     permissions:
       contents: write
       id-token: write
