@@ -8,5 +8,7 @@ on:
 jobs:
   update:
     uses: externpro/externpro/.github/workflows/update-externpro.yml@main
+    with:
+      target_ref: '25.07.10'
     secrets:
       automation_token: ${{ secrets.XPRO_TOKEN }}
