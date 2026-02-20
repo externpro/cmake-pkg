@@ -11,9 +11,9 @@ on:
 jobs:
   linux:
     with:
-      cmake-workflow-preset: LinuxRelease
-      buildpro-images: ["rocky9-gcc13"]
-      artifact-pattern: ${{ github.event.repository.name }}-*.rpm
+      cmake_workflow_preset: LinuxRelease
+      buildpro_images: ["rocky9-gcc13"]
+      artifact_pattern: '${{ github.event.repository.name }}-*.rpm'
     permissions:
       contents: read
       pull-requests: write
@@ -21,4 +21,3 @@ jobs:
     uses: externpro/externpro/.github/workflows/build-linux.yml@main
     secrets:
       automation_token: ${{ secrets.GHCR_TOKEN }}
-herit
