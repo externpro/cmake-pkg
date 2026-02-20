@@ -18,6 +18,6 @@ jobs:
     secrets:
       automation_token: ${{ secrets.GHCR_TOKEN }}
     with:
-      artifact-pattern: ${{ github.event.repository.name }}-*.rpm
-      buildpro-images: '["rocky9-gcc13"]'
-      cmake-workflow-preset: LinuxRelease
+      artifact_pattern: '${{ github.event.repository.name }}-*.rpm'
+      buildpro_images: '["rocky9-gcc13"]'
+      cmake_workflow_preset: LinuxRelease
