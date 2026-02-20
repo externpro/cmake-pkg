@@ -16,7 +16,7 @@ jobs:
       packages: write
     uses: externpro/externpro/.github/workflows/build-linux.yml@25.07.10
     with:
-      artifact-pattern: "${{ github.event.repository.name }}-*.rpm"
+      artifact-pattern: '${{ github.event.repository.name }}-*.rpm'
       cmake-workflow-preset: LinuxRelease
       buildpro-images: '["rocky9-gcc13"]'
     secrets:
