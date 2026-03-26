@@ -1,12 +1,12 @@
 cmake_minimum_required(VERSION 3.31)
 set(CMAKE_BUILD_TYPE "Release" CACHE STRING "Build configuration")
 set(CMAKE_PROJECT_TOP_LEVEL_INCLUDES .devcontainer/cmake/xproinc.cmake)
-project(cmake-pkg VERSION 4.2.3 LANGUAGES CXX)
-# https://github.com/Kitware/CMake/releases/tag/v4.2.3
-# https://github.com/Kitware/CMake/releases/download/v4.2.3/cmake-4.2.3-linux-x86_64.tar.gz
-# https://github.com/Kitware/CMake/releases/download/v4.2.3/cmake-4.2.3-linux-aarch64.tar.gz
-set(sha_aarch64 e529c75f18f27ba27c52b329efe7b1f98dc32ccc0c6d193c7ab343f888962672)
-set(sha_x86_64 5bb505d5e0cca0480a330f7f27ccf52c2b8b5214c5bba97df08899f5ef650c23)
+project(cmake-pkg VERSION 4.3.0 LANGUAGES CXX)
+# https://github.com/Kitware/CMake/releases/tag/v4.3.0
+# https://github.com/Kitware/CMake/releases/download/v4.3.0/cmake-4.3.0-linux-x86_64.tar.gz
+# https://github.com/Kitware/CMake/releases/download/v4.3.0/cmake-4.3.0-linux-aarch64.tar.gz
+set(sha_aarch64 26fe3011f497eb9398115dcabcc094685e634b1841f7c01dc01c5a89b8b0ea0d)
+set(sha_x86_64 201bdabe17a54e017f119cffa247648e9c44327e52473c2cc60a88fded94652a)
 set(REPO https://github.com/Kitware/CMake)
 string(TOLOWER ${CMAKE_SYSTEM_NAME} os)
 if(CMAKE_SYSTEM_PROCESSOR MATCHES "^(x86_64|amd64|AMD64)$")
