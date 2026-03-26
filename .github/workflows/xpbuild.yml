@@ -14,10 +14,10 @@ jobs:
       contents: read
       pull-requests: write
       packages: write
-    uses: externpro/externpro/.github/workflows/build-linux.yml@25.07.12
+    uses: externpro/externpro/.github/workflows/build-linux.yml@main
     secrets:
       automation_token: ${{ secrets.GHCR_TOKEN }}
     with:
       artifact_pattern: '${{ github.event.repository.name }}-*.rpm'
-      cmake_workflow_preset: LinuxRelease
       buildpro_images: '["rocky9-gcc13"]'
+      cmake_workflow_preset_suffix: Release
