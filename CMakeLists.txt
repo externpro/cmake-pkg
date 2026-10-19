@@ -1,11 +1,12 @@
 cmake_minimum_required(VERSION 4.3)
 set(CMAKE_BUILD_TYPE "Release" CACHE STRING "Build configuration")
-project(cmake-pkg VERSION 4.4.3 LANGUAGES CXX)
-# https://github.com/Kitware/CMake/releases/tag/v4.4.3
-# https://github.com/Kitware/CMake/releases/download/v4.4.3/cmake-4.4.3-linux-aarch64.tar.gz
-# https://github.com/Kitware/CMake/releases/download/v4.4.3/cmake-4.4.3-linux-x86_64.tar.gz
-set(sha_aarch64 2efc974dbd63b4444c0e8494b92f2e80c2d7e635b4b80eac2916985ddd8f72a6)
-set(sha_x86_64 d6c83076c575bc00b823522ac974bda66d0af05d6ddc30e739c12385cf32c6cc)
+project(cmake-pkg VERSION 4.5.0 LANGUAGES CXX)
+set(RC "-rc1")
+# https://github.com/Kitware/CMake/releases/tag/v4.5.0-rc1
+# https://github.com/Kitware/CMake/releases/download/v4.5.0-rc1/cmake-4.5.0-rc1-linux-aarch64.tar.gz
+# https://github.com/Kitware/CMake/releases/download/v4.5.0-rc1/cmake-4.5.0-rc1-linux-x86_64.tar.gz
+set(sha_aarch64 bfeed58cbf40f8aa4539097458315590fbd124ffe5e8df8135bbff4ee777d2e3)
+set(sha_x86_64 b3b7d70e3a35808a6ea05f8bb8ff835318d480231004e2ea8c3ed43f2eda9ed3)
 set(REPO https://github.com/Kitware/CMake)
 string(TOLOWER ${CMAKE_SYSTEM_NAME} os)
 if(CMAKE_SYSTEM_PROCESSOR MATCHES "^(x86_64|amd64|AMD64)$")
@@ -13,7 +14,7 @@ if(CMAKE_SYSTEM_PROCESSOR MATCHES "^(x86_64|amd64|AMD64)$")
 elseif(CMAKE_SYSTEM_PROCESSOR MATCHES "^(aarch64|arm64|ARM64)$")
   set(arch "aarch64")
 endif()
-set(url ${REPO}/releases/download/v${PROJECT_VERSION}/cmake-${PROJECT_VERSION}-${os}-${arch}.tar.gz)
+set(url ${REPO}/releases/download/v${PROJECT_VERSION}${RC}/cmake-${PROJECT_VERSION}${RC}-${os}-${arch}.tar.gz)
 set(opt DOWNLOAD_EXTRACT_TIMESTAMP true)
 include(FetchContent)
 FetchContent_Declare(cmake ${opt} URL ${url} URL_HASH SHA256=${sha_${arch}})
@@ -24,7 +25,7 @@ set(CPACK_RPM_PACKAGE_ARCHITECTURE ${arch})
 # https://github.com/externpro/externpro/issues/53
 set(CPACK_RPM_SPEC_MORE_DEFINE "%define _build_id_links none")
 set(CPACK_PACKAGING_INSTALL_PREFIX "/usr/local")
-set(_cpack_package_version "v${PROJECT_VERSION}")
+set(_cpack_package_version "v${PROJECT_VERSION}${RC}")
 set(_release_tag_file "${CMAKE_CURRENT_SOURCE_DIR}/.github/release-tag.json")
 if(EXISTS "${_release_tag_file}")
   file(READ "${_release_tag_file}" _release_tag_contents)
