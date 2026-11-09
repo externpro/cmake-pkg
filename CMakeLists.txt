@@ -1,12 +1,12 @@
 cmake_minimum_required(VERSION 4.3)
 set(CMAKE_BUILD_TYPE "Release" CACHE STRING "Build configuration")
 project(cmake-pkg VERSION 4.5.0 LANGUAGES CXX)
-set(RC "-rc2")
-# https://github.com/Kitware/CMake/releases/tag/v4.5.0-rc2
-# https://github.com/Kitware/CMake/releases/download/v4.5.0-rc2/cmake-4.5.0-rc2-linux-aarch64.tar.gz
-# https://github.com/Kitware/CMake/releases/download/v4.5.0-rc2/cmake-4.5.0-rc2-linux-x86_64.tar.gz
-set(sha_aarch64 eb9e34098b07e1b86bd744a624c67cda19bf3be800e6baea702e9c01305c7663)
-set(sha_x86_64 5d763a6b0b1ab67588734f14734dec1a3957b491750b46804b2a13b9e9e0a75a)
+set(RC "-rc3")
+# https://github.com/Kitware/CMake/releases/tag/v4.5.0-rc3
+# https://github.com/Kitware/CMake/releases/download/v4.5.0-rc3/cmake-4.5.0-rc3-linux-aarch64.tar.gz
+# https://github.com/Kitware/CMake/releases/download/v4.5.0-rc3/cmake-4.5.0-rc3-linux-x86_64.tar.gz
+set(sha_aarch64 22756c50cdf850076a58702dc39903e769d971388cb90c362facc5957b4df957)
+set(sha_x86_64 320bf7b1c2e625270d36d8bf19aa7e72d3a0c576846a6cf68743b9e35ec14706)
 set(REPO https://github.com/Kitware/CMake)
 string(TOLOWER ${CMAKE_SYSTEM_NAME} os)
 if(CMAKE_SYSTEM_PROCESSOR MATCHES "^(x86_64|amd64|AMD64)$")
