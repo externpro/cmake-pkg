@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 4.3)
+cmake_minimum_required(VERSION 4.4)
 set(CMAKE_BUILD_TYPE "Release" CACHE STRING "Build configuration")
 project(cmake-pkg VERSION 4.5.0 LANGUAGES CXX)
 set(RC "")
