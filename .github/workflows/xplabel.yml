@@ -1,0 +1,29 @@
+name: xpLabel
+permissions:
+  pull-requests: write
+  issues: write
+on:
+  pull_request:
+    types: [opened, reopened, synchronize]
+    branches: ["xpro"]
+jobs:
+  release-tag:
+    if: startsWith(github.event.pull_request.head.ref, 'xpsync-')
+    runs-on: ubuntu-latest
+    steps:
+      - name: Label sync PRs that bump the upstream version
+        env:
+          GH_TOKEN: ${{ github.token }}
+          PR: ${{ github.event.pull_request.number }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          gh label create release:tag --color 0e8a16 --description "create xpv tag on merge" 2>/dev/null || true
+          gh pr diff "${PR}" --patch > /tmp/pr.diff || gh pr diff "${PR}" > /tmp/pr.diff
+          sed -n '/^diff --git a\/CMakeLists.txt/,/^diff --git /p' /tmp/pr.diff > /tmp/win.diff
+          if grep -qE '^\+(project\(cmake-pkg VERSION|set\(RC|set\(sha_)' /tmp/win.diff; then
+            gh pr edit "${PR}" --add-label release:tag
+            echo "added release:tag to PR #${PR} (upstream version bump detected)"
+          else
+            echo "no upstream version bump in PR #${PR}; not labeling"
+          fi
