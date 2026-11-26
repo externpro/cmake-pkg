@@ -14,6 +14,7 @@ jobs:
       - name: Label sync PRs that bump the upstream version
         env:
           GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
           PR: ${{ github.event.pull_request.number }}
         shell: bash
         run: |
